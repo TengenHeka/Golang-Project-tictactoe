@@ -24,5 +24,23 @@ func main() {
 
         fmt.Printf("Player %s, choose a position (1-9): ", currentPlayer)
         fmt.Scan(&position)
-	}
+	
+        if position < 1  position > 9 {
+            fmt.Println("Invalid position. Choose between 1 and 9.")
+            continue
+        }
+
+        if board[position-1] == "X"  board[position-1] == "O" {
+            fmt.Println("That position is already taken.")
+            continue
+        }
+
+        board[position-1] = currentPlayer
+
+        if currentPlayer == "X" {
+            currentPlayer = "O"
+        } else {
+            currentPlayer = "X"
+        }
+    }
 }
