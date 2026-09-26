@@ -44,3 +44,19 @@ func checkDraw(board []string) bool {
 
     return true
 }
+
+func computerMove(board []string) int {
+    var available []int
+
+    for i, position := range board {
+        if position != "X" && position != "O" {
+            available = append(available, i)
+        }
+    }
+
+    if len(available) == 0 {
+        return -1
+    }
+
+    return available[rand.Intn(len(available))]
+}
